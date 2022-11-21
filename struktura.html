@@ -7,9 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML5 struktūra</title>
     <style>
+        * {
+            box-sizing: border-box;
+
+        }
+
+        body {
+            margin: 0;
+        }
+
         header {
             text-align: center;
         }
+
         nav ul {
             list-style: none;
             margin: 0;
@@ -21,21 +31,83 @@
         nav ul li {
             padding: 15px 10px;
         }
-        main{
+
+        main {
             display: flex;
         }
-article{
-    width: 70%;
-}
-aside{
-    width: 30%;
-}
-footer {
+
+        article {
+            width: 70%;
+        }
+
+        aside {
+            width: 30%;
+        }
+
+        footer {
             text-align: center;
         }
+
         .container {
-            width: 1140px;
-            height: 0 auto;
+            width: 100%;
+            max-width: 1140px;
+            margin: 0;
+            padding: 0 15px;
+        }
+
+        lable.hamburger-nav {
+            display: none;
+        }
+
+        input.hidden {
+
+            display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+
+            article,
+            aside {
+                width: 100%;
+            }
+
+            main {
+                display: block;
+            }
+
+            lable.hamburger-nav {
+                padding-top: 5px;
+                display: inline-block;
+
+            }
+
+            lable.hamburger-nav span {
+                width: 30px;
+                height: 3px;
+                background: black;
+                display: block;
+                margin-bottom: 4px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            #hamburger:checked + ul {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 375px) {
+            header h1 {
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 1024px) {
+            header h1 {
+                font-size: 60px;
+            }
         }
     </style>
 </head>
@@ -44,10 +116,19 @@ footer {
     <header>
         <h1>Tai yra header</h1>
         <nav>
+            <lable for="hamburger" class="hamburger-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </lable>
+            <input type="checkbox" id="hamburger" class="hidden">
             <ul>
                 <li><a href="#">Pirmas</a></li>
                 <li><a href="#">Antras</a></li>
                 <li><a href="#">Trečias</a></li>
+                <li><a href="#">Ketvirtas</a></li>
+                <li><a href="#">Penktas</a></li>
+                <li><a href="#">Šeštas</a></li>
             </ul>
         </nav>
     </header>
